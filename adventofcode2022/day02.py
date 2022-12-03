@@ -16,7 +16,17 @@ guide = parse_file(read_file(file_path))
 
 
 def get_score(pairs: list) -> int:
-    SCORING = {"A X": 4, "B Y": 5, "C Z": 6, "A Y": 8, "A Z": 3, "B X": 1, "B Z": 9, "C X": 7, "C Y": 2}
+    SCORING = {
+        "A X": 4,
+        "B Y": 5,
+        "C Z": 6,
+        "A Y": 8,
+        "A Z": 3,
+        "B X": 1,
+        "B Z": 9,
+        "C X": 7,
+        "C Y": 2,
+    }
     score = 0
     for ele in pairs:
         score += SCORING.get(ele, None)
@@ -44,7 +54,17 @@ def resolve_XYZ(pair: str):
 
 
 def get_tactical_score(pairs: list[str]) -> int:
-    SCORING = {"A A": 4, "B B": 5, "C C": 6, "A B": 8, "A C": 3, "B A": 1, "B C": 9, "C A": 7, "C B": 2}
+    SCORING = {
+        "A A": 4,
+        "B B": 5,
+        "C C": 6,
+        "A B": 8,
+        "A C": 3,
+        "B A": 1,
+        "B C": 9,
+        "C A": 7,
+        "C B": 2,
+    }
     score = 0
     for ele in pairs:
         pair = resolve_XYZ(ele)

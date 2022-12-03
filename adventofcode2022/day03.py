@@ -10,7 +10,6 @@ def parse_file(file_content):
 
 file_path = "./input/day03.csv"
 
-
 rucksack = parse_file(read_file(file_path))
 
 
