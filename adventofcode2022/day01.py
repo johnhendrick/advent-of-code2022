@@ -1,6 +1,4 @@
-def read_file(file_path: str):
-    with open(file_path) as f:
-        return f.read()
+from adventofcode2022 import read_file
 
 
 def parse_file(file_content):
