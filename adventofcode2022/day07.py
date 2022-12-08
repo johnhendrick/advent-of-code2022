@@ -14,7 +14,6 @@ def find_folder_index(name, content):
         if type(ele) == Folder:
             if ele.folder_name == name:
                 return i
-
     return False
 
 
@@ -63,7 +62,6 @@ def go_up_bool(command) -> bool:
 
 def recurse_add(current_folder, commands):
     # in hindsight does not need to be recursive
-
     command = commands[0]
     if len(commands) == 1:
         current_folder.add(command)
@@ -93,7 +91,6 @@ def get_folder_sizes_recurse(current_folder: Folder):
     for ele in current_folder.content:
 
         if type(ele) == Folder:
-
             get_folder_sizes_recurse(ele)
 
         folder_size += ele.size
