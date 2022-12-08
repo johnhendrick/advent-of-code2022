@@ -23,7 +23,6 @@ class Folder:
         self.folder_name = folder_name
         self.content: list = []
         self.parent = parent
-        self.size = 0
 
     def add(self, command_dict):
         command = list(command_dict.keys())[0]
@@ -41,9 +40,6 @@ class Folder:
         elif command == "cd" and command_details == "..":
             # go up one level
             print(f"go up one level to {self.parent.folder_name}")
-            # for ele in self.content:
-            #     self.size += ele.size
-            #      print(f"updated dir {self.folder_name} as {self.size=}")
         elif command == "ls":
             # add content
             for _file in command_details:
@@ -59,10 +55,6 @@ class Files:
     def __init__(self, file_name, file_size):
         self.file_name = file_name
         self.size = file_size
-
-
-# for command_dict in command:
-#     root.add(command_dict)
 
 
 def go_up_bool(command) -> bool:
