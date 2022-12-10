@@ -62,6 +62,6 @@ def count_visible(tree_map: list[list]) -> tuple:
     return count_visible, max(scenic_scores)
 
 
-file_path = "./input/day08.csv"
-tree_map = parse_file(read_file(file_path))
+FILE_PATH = "./input/day08.csv"
+tree_map = parse_file(read_file(FILE_PATH))
 print(count_visible(tree_map))

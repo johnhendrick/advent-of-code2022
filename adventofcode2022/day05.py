@@ -62,14 +62,14 @@ def get_top(crates):
     return string
 
 
-file_path = "./input/day05.csv"
+FILE_PATH = "./input/day05.csv"
 
-crates, tasks = parse_file(read_file(file_path))
+crates, tasks = parse_file(read_file(FILE_PATH))
 
 crates = execute(crates, tasks, reverse=False, verbose=False)
 print(get_top(crates))
 
 # Part 2
-crates_2, tasks = parse_file(read_file(file_path))
+crates_2, tasks = parse_file(read_file(FILE_PATH))
 crates_2 = execute(crates_2, tasks, reverse=True, verbose=False)
 print(get_top(crates_2))

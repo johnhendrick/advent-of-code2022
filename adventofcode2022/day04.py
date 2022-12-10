@@ -7,9 +7,9 @@ def parse_file(file_content) -> list:
     return tasks
 
 
-file_path = "./input/day04.csv"
+FILE_PATH = "./input/day04.csv"
 
-tasks = parse_file(read_file(file_path))
+tasks = parse_file(read_file(FILE_PATH))
 
 
 def transform_to_tuple(task: str) -> tuple:

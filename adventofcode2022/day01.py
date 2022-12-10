@@ -8,10 +8,10 @@ def parse_file(file_content):
     return group_cleaned
 
 
-file_path = "./input/day01.csv"
+FILE_PATH = "./input/day01.csv"
 
 
-calories = parse_file(read_file(file_path))
+calories = parse_file(read_file(FILE_PATH))
 calories_sum = [sum(elf) for elf in calories]
 
 print(max(calories_sum))

@@ -7,10 +7,10 @@ def parse_file(file_content):
     return row
 
 
-file_path = "./input/day02.csv"
+FILE_PATH = "./input/day02.csv"
 
 
-guide = parse_file(read_file(file_path))
+guide = parse_file(read_file(FILE_PATH))
 
 
 def get_score(pairs: list) -> int:

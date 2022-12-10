@@ -1,8 +1,8 @@
 from adventofcode2022 import read_file
 
-file_path = "./input/day06.csv"
+FILE_PATH = "./input/day06.csv"
 
-signal = read_file(file_path)
+signal = read_file(FILE_PATH)
 
 
 def min_zero(num):

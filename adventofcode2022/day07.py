@@ -99,8 +99,8 @@ def get_folder_sizes_recurse(current_folder: Folder):
     folder_sizes.append((current_folder.folder_name, folder_size))
 
 
-file_path = "./input/day07.csv"
-command = parse_terminal(read_file(file_path))
+FILE_PATH = "./input/day07.csv"
+command = parse_terminal(read_file(FILE_PATH))
 
 root = Folder("/", None)
 

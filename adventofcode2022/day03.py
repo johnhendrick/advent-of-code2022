@@ -6,9 +6,9 @@ def parse_file(file_content):
     return row
 
 
-file_path = "./input/day03.csv"
+FILE_PATH = "./input/day03.csv"
 
-rucksack = parse_file(read_file(file_path))
+rucksack = parse_file(read_file(FILE_PATH))
 
 
 def split_middle(content: str) -> tuple:
