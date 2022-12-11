@@ -15,7 +15,7 @@ def parse_file(file_content) -> list:
                 note[i] = [int(ele) for ele in re.findall(r"\d+", note[i])]
                 note[i] = note[i][0] if len(note[i]) == 1 and i != 1 else note[i]
             else:
-                note[i] = note[i][19:]
+                note[i] = note[i][19:].replace("old", "item")  # eval()
         notes.append(note)
     return notes
 
@@ -41,9 +41,8 @@ class Monkey:
 
     def _inspect(self, item) -> tuple[bool, int]:
         self.inspect_count += 1
-
-        old = item  # eval()
         new = math.floor(eval(self.operation) * self.worry_factor) % self.lcm
+
         if new % self.divide == 0:
             return True, new
         else:
@@ -58,18 +57,18 @@ class Monkey:
             print(f"Throwing {new} to {target_monke}")
         return target_monke, new
 
-    def receive(self, item: int):
+    def receive(self, item: int) -> None:
         self.items.append(item)
 
 
-def get_prime_lcm(notes, num=1):
+def get_prime_lcm(notes: list[list], num: int = 1) -> int:
     primes = [note[3] for note in notes]
     for prime in primes:
         num *= prime
     return num
 
 
-def simulate(rounds=1, worry_factor=1 / 3):
+def simulate(rounds: int = 1, worry_factor: float = 1 / 3) -> dict[int, Monkey]:
     notes = parse_file(read_file(FILE_PATH))
     lcm = get_prime_lcm(notes)
     all_monke = {_monke[0]: Monkey(*_monke[1:], worry_factor, lcm) for _monke in notes}
