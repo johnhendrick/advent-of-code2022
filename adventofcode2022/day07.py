@@ -4,8 +4,7 @@ from adventofcode2022 import read_file
 def parse_terminal(string: str) -> tuple():
     commands = string.split("$ ")
     commands = [list(filter(lambda x: x != "", ele_)) for ele_ in [ele.split("\n") for ele in commands]][2:]
-    commands = [{ele[0]: ele[1:]} if "cd " not in ele[0] else {ele[0][:2]: ele[0][3:]} for ele in commands]
-    return commands
+    return [{ele[0]: ele[1:]} if "cd " not in ele[0] else {ele[0][:2]: ele[0][3:]} for ele in commands]
 
 
 def find_folder_index(name, content):
@@ -27,7 +26,6 @@ class Folder:
         command = list(command_dict.keys())[0]
         command_details = command_dict[command]
         if command == "cd" and command_details != "..":
-
             find_folder = find_folder_index(command_details, self.content)
             # add folder if does not exist
             if find_folder == False:
@@ -101,7 +99,6 @@ def get_folder_sizes_recurse(current_folder: Folder):
 
 FILE_PATH = "./input/day07.csv"
 command = parse_terminal(read_file(FILE_PATH))
-
 root = Folder("/", None)
 
 recurse_add(root, command)
