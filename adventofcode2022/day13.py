@@ -1,5 +1,3 @@
-import heapq as hq
-from collections import defaultdict
 from adventofcode2022 import read_file
 
 FILE_PATH = "./input/day13.csv"

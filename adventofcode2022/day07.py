@@ -8,7 +8,6 @@ def parse_terminal(string: str) -> tuple():
 
 
 def find_folder_index(name, content):
-
     for i, ele in enumerate(content):
         if type(ele) == Folder:
             if ele.folder_name == name:
@@ -27,19 +26,16 @@ class Folder:
         command_details = command_dict[command]
         if command == "cd" and command_details != "..":
             find_folder = find_folder_index(command_details, self.content)
-            # add folder if does not exist
-            if find_folder == False:
+            if find_folder == False:  # add folder if does not exist
                 print(f"Adding folder {command_details}")
                 self.content.append(Folder(command_details, parent=self))
             else:
                 print(f"folder found at index {find_folder}")
 
-        elif command == "cd" and command_details == "..":
-            # go up one level
+        elif command == "cd" and command_details == "..":  # go up one level
             print(f"go up one level to {self.parent.folder_name}")
         elif command == "ls":
-            # add content
-            for _file in command_details:
+            for _file in command_details:  # add content
                 if "dir " not in _file:
                     file_size, file_name = _file.split(" ")
                     self.content.append(Files(file_name, int(file_size)))
@@ -81,13 +77,9 @@ def recurse_add(current_folder, commands):
     return recurse_add(current_folder, commands[1:])
 
 
-folder_sizes = []
-
-
 def get_folder_sizes_recurse(current_folder: Folder):
     folder_size = 0
     for ele in current_folder.content:
-
         if type(ele) == Folder:
             get_folder_sizes_recurse(ele)
 
@@ -100,13 +92,12 @@ def get_folder_sizes_recurse(current_folder: Folder):
 FILE_PATH = "./input/day07.csv"
 command = parse_terminal(read_file(FILE_PATH))
 root = Folder("/", None)
-
+folder_sizes = []
 recurse_add(root, command)
 get_folder_sizes_recurse(root)
 
 relevant_total = [ele for ele in folder_sizes if ele[1] <= 100000]
 final_total = [ele[1] for ele in relevant_total]
-
 print(sum(final_total))
 
 # Part 2
