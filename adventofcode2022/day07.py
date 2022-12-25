@@ -39,7 +39,6 @@ class Folder:
                 if "dir " not in _file:
                     file_size, file_name = _file.split(" ")
                     self.content.append(Files(file_name, int(file_size)))
-
         else:
             raise Exception("Unknown command")
 
@@ -55,7 +54,6 @@ def go_up_bool(command) -> bool:
 
 
 def recurse_add(current_folder, commands):
-    # in hindsight does not need to be recursive
     command = commands[0]
     if len(commands) == 1:
         current_folder.add(command)
@@ -69,12 +67,11 @@ def recurse_add(current_folder, commands):
             if go_up_bool(command):
                 current_folder = current_folder.parent
             else:
-                # enter newly added folder
                 print(f"cd into {command['cd']}")
                 folder_index = find_folder_index(command["cd"], current_folder.content)
                 current_folder = current_folder.content[folder_index]
 
-    return recurse_add(current_folder, commands[1:])
+    return recurse_add(current_folder, commands[1:])  # in hindsight does not need to be recursive
 
 
 def get_folder_sizes_recurse(current_folder: Folder):
@@ -82,7 +79,6 @@ def get_folder_sizes_recurse(current_folder: Folder):
     for ele in current_folder.content:
         if type(ele) == Folder:
             get_folder_sizes_recurse(ele)
-
         folder_size += ele.size
 
     current_folder.size = folder_size
