@@ -25,7 +25,6 @@ def draw_line(start: tuple[int], end: tuple[int]) -> list[tuple]:
         else:
             _line = repeat(ele)
         line.append(_line)
-
     return list(zip(line[0], line[1]))
 
 
@@ -51,7 +50,6 @@ class Sand:
             self.lowest_ceil += 2
             floor_line = draw_rocks([[(0, self.lowest_ceil), (1000, self.lowest_ceil)]])
             terrain.update(floor_line)
-
         return terrain
 
     def move_step(self):
@@ -69,7 +67,6 @@ class Sand:
             self.move_step()
             if self.pos[1] == self.lowest_ceil:  # fallen off
                 return False
-
         return True
 
 

@@ -29,6 +29,7 @@ class CircularQueue:
             for ele in self.ops:
                 if ele[0] != 0:
                     self.move(ele)
+        self.get_val()
 
     def get_val(self, val=0):
         for num in [1000, 2000, 3000]:
@@ -39,9 +40,7 @@ class CircularQueue:
 
 sequence = parse_file(read_file(FILE_PATH))
 seq = CircularQueue(sequence)
-seq.run()
-seq.get_val()  # part1
+seq.run()  # part 1
 
 seq2 = CircularQueue(sequence, multiplier=811589153)
-seq2.run(rounds=10)
-seq2.get_val()  # # part 2
+seq2.run(rounds=10)  # # part 2

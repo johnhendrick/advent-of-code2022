@@ -27,12 +27,12 @@ def get_neighbours(cube: list[int]):
 
 def is_inside(loc: tuple, all_coors: list[tuple]) -> bool:
     try:
-        x_min = min(set(filter(lambda l: (l[1], l[2]) == (loc[1], loc[2]), all_coors)), key=lambda l: l[0])[0]
-        y_min = min(set(filter(lambda l: (l[2], l[0]) == (loc[2], loc[0]), all_coors)), key=lambda l: l[1])[1]
-        z_min = min(set(filter(lambda l: (l[1], l[0]) == (loc[1], loc[0]), all_coors)), key=lambda l: l[2])[2]
-        x_max = max(set(filter(lambda l: (l[1], l[2]) == (loc[1], loc[2]), all_coors)), key=lambda l: l[0])[0]
-        y_max = max(set(filter(lambda l: (l[2], l[0]) == (loc[2], loc[0]), all_coors)), key=lambda l: l[1])[1]
-        z_max = max(set(filter(lambda l: (l[1], l[0]) == (loc[1], loc[0]), all_coors)), key=lambda l: l[2])[2]
+        x_min = min(set(filter(lambda l: (l[1], l[2]) == (loc[1], loc[2]), all_coors)), key=lambda k: k[0])[0]
+        y_min = min(set(filter(lambda l: (l[2], l[0]) == (loc[2], loc[0]), all_coors)), key=lambda k: k[1])[1]
+        z_min = min(set(filter(lambda l: (l[1], l[0]) == (loc[1], loc[0]), all_coors)), key=lambda k: k[2])[2]
+        x_max = max(set(filter(lambda l: (l[1], l[2]) == (loc[1], loc[2]), all_coors)), key=lambda k: k[0])[0]
+        y_max = max(set(filter(lambda l: (l[2], l[0]) == (loc[2], loc[0]), all_coors)), key=lambda k: k[1])[1]
+        z_max = max(set(filter(lambda l: (l[1], l[0]) == (loc[1], loc[0]), all_coors)), key=lambda k: k[2])[2]
 
         for ele, boundary in zip(loc, [(x_min, x_max), (y_min, y_max), (z_min, z_max)]):
             if ele < boundary[0] or ele > boundary[1]:
